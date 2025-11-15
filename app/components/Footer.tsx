@@ -1,12 +1,21 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin, Instagram, X } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Instagram,
+  X,
+  Check,
+  SendHorizontal,
+} from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="text-white">
       {/* MAIN FOOTER AREA */}
-      <div className="w-full bg-gradient-to-r from-[#0f0f0f] via-[#141414] to-[#1a1a1a] px-6 py-20 text-gray-300">
+      <div className="w-full bg-[#f8f8f8] px-6 py-20 text-gray-700">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* LOGO + TEXT + SUBSCRIBE */}
           <div className="max-w-sm">
@@ -33,8 +42,19 @@ export default function Footer() {
                 className="px-3 py-2 text-black flex-1 outline-none"
               />
 
-              <button className="bg-primary text-white px-4 py-2 font-semibold hover:bg-[#8c2525] transition">
-                Subscribe
+              <button
+                className="
+                  bg-primary 
+                  text-white 
+                  w-10 h-10 
+                  flex items-center justify-center
+                  hover:bg-[#8c2525] 
+                  transition 
+                  shadow-md 
+                  border border-white/20
+                "
+              >
+                <SendHorizontal size={18} strokeWidth={2.5} />
               </button>
             </div>
           </div>
@@ -95,13 +115,54 @@ export default function Footer() {
 
             {/* SOCIAL ICONS */}
             <div className="flex gap-4">
-              <div className="w-9 h-9 bg-white rounded-md flex items-center justify-center text-primary hover:scale-105 transition cursor-pointer">
+              <div
+                className="
+                  w-9 h-9 
+                  bg-white 
+                  rounded-md 
+                  flex items-center justify-center 
+                  text-primary 
+                  cursor-pointer
+                  transition-all duration-200
+                  hover:bg-primary 
+                  hover:text-white 
+                  shadow-sm
+                "
+              >
                 <X size={18} />
               </div>
-              <div className="w-9 h-9 bg-white rounded-md flex items-center justify-center text-primary hover:scale-105 transition cursor-pointer">
+
+              <div
+                className="
+                  w-9 h-9 
+                  bg-white 
+                  rounded-md 
+                  flex items-center justify-center 
+                  text-primary 
+                  cursor-pointer
+                  transition-all duration-200
+                  hover:bg-primary 
+                  hover:text-white 
+                  shadow-sm
+                "
+              >
                 <Linkedin size={18} />
               </div>
-              <div className="w-9 h-9 bg-white rounded-md flex items-center justify-center text-primary hover:scale-105 transition cursor-pointer">
+
+              <div
+                className="
+                  w-9 h-9 
+                  bg-white 
+                  rounded-md 
+                  flex items-center justify-center 
+                  text-primary 
+                  cursor-pointer
+                  transition-all duration-200
+                  hover:bg-primary 
+                  hover:text-white 
+                  shadow-sm
+                "
+              >
                 <Instagram size={18} />
               </div>
             </div>
@@ -112,7 +173,7 @@ export default function Footer() {
       {/* BOTTOM COPYRIGHT BAR */}
       <div className="w-full bg-gradient-to-r from-[#0c0c0c] to-[#1a1a1a] py-4 text-center text-sm border-t border-white/10 text-gray-400">
         © Copyright {new Date().getFullYear()}. All Rights Reserved by Axiatix.
-        Developed by KP Webtech.
+        Developed by Adith Narayan G.
       </div>
     </footer>
   );

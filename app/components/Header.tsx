@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="w-full bg-gradient-to-r from-[#1a1a1a] via-[#141414] to-[#0f0f0f] text-white shadow-md sticky top-0 z-50 border-b border-white/10">
+    <header className="w-full bg-white/90 backdrop-blur-sm text-gray-900 shadow-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <div className="flex items-center justify-center">
           <img
@@ -23,7 +23,19 @@ export default function Header() {
           <Link href="/contact">Contact</Link>
         </nav>
 
-        <button className="bg-white text-primary px-4 py-2 rounded-md font-semibold shadow-sm hover:bg-light transition">
+        <button
+          className="
+            bg-white 
+            text-primary 
+            px-5 py-2.5 
+            rounded-md 
+            font-semibold 
+            shadow-sm
+            transition-all duration-200
+            hover:bg-primary 
+            hover:text-white
+          "
+        >
           Enquiry Now
         </button>
       </div>
