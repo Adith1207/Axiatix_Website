@@ -6,9 +6,12 @@ export default function Header() {
   return (
     <header className="w-full bg-primary text-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-2">
-          <img src="/assets/logo.png" alt="logo" className="w-10" />
-          <span className="font-bold text-xl tracking-wide">AXIATIX</span>
+        <div className="flex items-center justify-center">
+          <img
+            src="/company_Logos/Axiatix5.png"
+            alt="Axiatix logo"
+            className="h-14 md:h-16 object-contain"
+          />
         </div>
 
         <nav className="hidden md:flex gap-8 text-sm">

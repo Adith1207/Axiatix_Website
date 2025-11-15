@@ -11,8 +11,11 @@ export default function Footer() {
           {/* LOGO + TEXT + SUBSCRIBE */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/assets/logo.png" alt="Axiatix logo" className="w-12" />
-              <h2 className="text-2xl font-bold tracking-wide">AXIATIX</h2>
+              <img
+                src="/company_Logos/Axiatix5.png"
+                alt="Axiatix logo"
+                className="w-24 md:w-28" // Increased from w-12
+              />
             </div>
 
             <p className="text-sm leading-relaxed mb-6">
