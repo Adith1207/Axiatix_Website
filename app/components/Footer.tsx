@@ -5,34 +5,34 @@ import { Mail, Phone, MapPin, Linkedin, Instagram, X } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="text-white">
-      {/* Background Section */}
+      {/* MAIN FOOTER AREA */}
       <div className="w-full bg-gradient-to-r from-primary to-[#7b1f1f] px-6 py-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* LOGO + TEXT + SUBSCRIBE */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img
-                src="/company_Logos/Axiatix5.png"
-                alt="Axiatix logo"
-                className="w-24 md:w-28" // Increased from w-12
-              />
-            </div>
+          <div className="max-w-sm">
+            <img
+              src="/company_Logos/Axiatix5.png"
+              alt="Axiatix logo"
+              className="w-28 md:w-32 mb-4"
+            />
 
             <p className="text-sm leading-relaxed mb-6">
               High-quality content is the heart of a successful marketing
               strategy. It drives engagement, trust, and growth.
             </p>
 
-            {/* Subscribe Input Box */}
-            <div className="flex items-center bg-white rounded-md overflow-hidden w-max">
+            {/* EMAIL SUBSCRIBE */}
+            <div className="flex items-center bg-white rounded-md overflow-hidden max-w-xs">
               <div className="px-3 text-primary">
                 <Mail size={18} />
               </div>
+
               <input
                 type="email"
                 placeholder="Email Address"
-                className="px-3 py-2 text-black outline-none"
+                className="px-3 py-2 text-black flex-1 outline-none"
               />
+
               <button className="bg-primary text-white px-4 py-2 font-semibold hover:bg-[#8c2525] transition">
                 Subscribe
               </button>
@@ -65,23 +65,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT US */}
+          {/* CONTACT INFO */}
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
 
+            {/* ADDRESS */}
             <div className="flex items-start gap-3 mb-3">
               <MapPin size={20} />
-              <p className="text-sm">
-                No: 35C, 13th Street, Madha Nagar Main Road, Madhananthapuram,
-                Porur, Chennai-600125
+              <p className="text-sm leading-relaxed">
+                No: 35C, 13th Street, Madha Nagar Main Road,
+                <br />
+                Madhananthapuram, Porur,
+                <br />
+                Chennai - 600125
               </p>
             </div>
 
+            {/* PHONE */}
             <div className="flex items-center gap-3 mb-3">
               <Phone size={18} />
               <p className="text-sm">+91-99443 10289</p>
             </div>
 
+            {/* EMAIL */}
             <div className="flex items-center gap-3 mb-6">
               <Mail size={18} />
               <p className="text-sm">sales@axiatix.com</p>
@@ -103,7 +109,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* BOTTOM STRIP */}
+      {/* BOTTOM COPYRIGHT BAR */}
       <div className="w-full bg-primary py-4 text-center text-sm border-t border-white/20">
         © Copyright {new Date().getFullYear()}. All Rights Reserved by Axiatix.
         Developed by KP Webtech.
