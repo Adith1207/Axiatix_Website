@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="w-full py-20 bg-[#fafafa]">
+    <section className="w-full py-20 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* LEFT: IMAGE */}
+        {/* LEFT IMAGE */}
         <div className="relative">
           <img
             src="/about/about-image.jpg"
@@ -17,7 +17,7 @@ export default function AboutSection() {
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-transparent pointer-events-none"></div>
         </div>
 
-        {/* RIGHT: TEXT CONTENT */}
+        {/* RIGHT TEXT */}
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
             About <span className="text-primary">Axiatix</span>
@@ -35,7 +35,6 @@ export default function AboutSection() {
             their technology landscape and accelerate growth.
           </p>
 
-          {/* CTA BUTTON */}
           <Link href="/about">
             <button
               className="
