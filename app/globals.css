@@ -41,3 +41,21 @@ body {
     25% 100%, 0% 50%
   );
 }
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #a42a2a,
+    #7b1f1f,
+    #4b1212,
+    #000000
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
