@@ -3,42 +3,40 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-export default function ExpCounter({
+// Exponential easing
+const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+export default function Counter({
   from = 0,
-  to = 100,
+  to,
   duration = 1200,
   className = "",
 }) {
   const [value, setValue] = useState(from);
   const { ref, inView } = useInView({ triggerOnce: true });
 
-  // Exponential easing (smooth professional counter)
-  const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
   useEffect(() => {
     if (!inView) return;
 
-    let start = 0;
-    const end = to;
     const startTime = performance.now();
 
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutExpo(progress);
+    const animate = (time: number) => {
+      const progress = Math.min((time - startTime) / duration, 1);
+      const eased = easeOutExpo(progress);
 
-      const currentValue = Math.floor(easedProgress * (end - start) + start);
-      setValue(currentValue);
+      const newValue = Math.floor(from + (to - from) * eased);
+
+      setValue(newValue);
 
       if (progress < 1) requestAnimationFrame(animate);
     };
 
     requestAnimationFrame(animate);
-  }, [inView, to, duration]);
+  }, [inView, from, to, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {value}
+      {value ?? 0}
     </span>
   );
 }
