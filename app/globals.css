@@ -64,3 +64,84 @@ body {
   0% { transform: translateX(-150%) rotate(20deg); }
   100% { transform: translateX(150%) rotate(20deg); }
 }
+
+/* Partners ribbon marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* we duplicate content so -50% loops smoothly */
+}
+
+/* reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .partners-marquee {
+    animation: none !important;
+  }
+}
+
+/* optional small card shadow + subtle glass look (no blur) */
+.partner-card {
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* holo gradient overlay along top/bottom edges */
+.partners-overlay-left,
+.partners-overlay-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7%;
+  pointer-events: none;
+  z-index: 30;
+}
+.partners-overlay-left {
+  left: 0;
+  background: linear-gradient(to right, var(--background, #fff), transparent);
+}
+.partners-overlay-right {
+  right: 0;
+  background: linear-gradient(to left, var(--background, #fff), transparent);
+}
+
+/* small responsive tweaks */
+.partner-logo {
+  transition: transform .22s ease, filter .22s ease, opacity .22s ease;
+}
+.partner-card:hover .partner-logo {
+  transform: scale(1.06);
+  opacity: 1;
+  filter: brightness(1.05) saturate(1.05);
+}
+
+.partners-overlay-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10%;
+  pointer-events: none;
+  z-index: 30;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #fdf2f2cc,
+    #fae6e600
+  );
+}
+
+.partners-overlay-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 10%;
+  pointer-events: none;
+  z-index: 30;
+  background: linear-gradient(
+    to left,
+    #ffffff,
+    #fdf2f2cc,
+    #fae6e600
+  );
+}
