@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="text-white">
       {/* MAIN FOOTER AREA */}
-      <div className="w-full bg-gradient-to-r from-primary to-[#7b1f1f] px-6 py-20">
+      <div className="w-full bg-gradient-to-r from-[#0f0f0f] via-[#141414] to-[#1a1a1a] px-6 py-20 text-gray-300">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* LOGO + TEXT + SUBSCRIBE */}
           <div className="max-w-sm">
@@ -110,7 +110,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM COPYRIGHT BAR */}
-      <div className="w-full bg-primary py-4 text-center text-sm border-t border-white/20">
+      <div className="w-full bg-gradient-to-r from-[#0c0c0c] to-[#1a1a1a] py-4 text-center text-sm border-t border-white/10 text-gray-400">
         © Copyright {new Date().getFullYear()}. All Rights Reserved by Axiatix.
         Developed by KP Webtech.
       </div>

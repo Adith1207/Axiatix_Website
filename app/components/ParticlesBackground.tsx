@@ -6,7 +6,7 @@ import { loadSlim } from "tsparticles-slim";
 
 export default function ParticlesBackground() {
   const particlesInit = useCallback(async (engine: any) => {
-    await loadSlim(engine); // FIXED: use loadSlim instead of loadFull
+    await loadSlim(engine);
   }, []);
 
   return (
@@ -16,43 +16,78 @@ export default function ParticlesBackground() {
       className="absolute inset-0"
       options={{
         fullScreen: false,
-        background: {
-          color: "transparent",
-        },
+
+        background: { color: "transparent" },
+
         fpsLimit: 60,
+        detectRetina: true,
+
         particles: {
           number: {
-            value: 70,
-            density: { enable: true, area: 1000 },
+            value: 120, // MORE PARTICLES
+            density: { enable: true, area: 800 }, // MORE DENSE
           },
-          color: { value: "#ffffff" },
+
+          // Modern blue particle colors
+          color: { value: ["#8ecbff", "#4ea1ff"] },
+
+          // Only circles (cleaner corporate look)
+          shape: {
+            type: ["circle"],
+          },
+
+          // Particle glow effect
+          glow: {
+            enable: true,
+            color: "#4ea1ff",
+            blur: 15, // STRONGER GLOW
+          },
+
+          // Connecting network lines
           links: {
             enable: true,
-            distance: 140,
-            color: "#ffffff",
-            opacity: 0.3,
-            width: 1,
+            distance: 180, // BIGGER SPREAD
+            color: "#8ecbff",
+            opacity: 0.4,
+            width: 2, // THICKER LINES
           },
+
+          // Movement settings (smooth + elegant)
           move: {
             enable: true,
-            speed: 1,
-            outModes: {
-              default: "bounce",
-            },
+            speed: 0.8,
+            outModes: { default: "bounce" },
           },
-          opacity: { value: 0.5 },
-          size: { value: { min: 1, max: 3 } },
+
+          // Node visibility
+          opacity: {
+            value: 0.9, // STRONGER
+          },
+
+          // Node size
+          size: {
+            value: { min: 2, max: 5 }, // BIGGER DOTS
+          },
         },
+
+        // MOUSE INTERACTIVITY
         interactivity: {
           events: {
-            onHover: { enable: true, mode: "repulse" },
+            onHover: { enable: true, mode: "grab" }, // smooth grab effect
             resize: true,
           },
+
           modes: {
-            repulse: { distance: 120, duration: 0.4 },
+            grab: {
+              distance: 180,
+              links: { opacity: 0.5 }, // more visible when hovered
+            },
+            repulse: {
+              distance: 110,
+              duration: 0.4,
+            },
           },
         },
-        detectRetina: true,
       }}
     />
   );
