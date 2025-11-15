@@ -1,70 +1,47 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useMemo } from "react";
 
-/**
- * PartnersRibbon
- * - read logos listed in `logos` array (files should be in /public/partners/)
- * - duplicates the sequence to create an infinite seamless loop
- * - configurable speed via `speed` (seconds for one full loop)
- *
- * Usage: <PartnersRibbon />
- */
-
-export default function PartnersRibbon({
-  speed = 20, // seconds for one full loop (lower = faster)
-  cardPadding = 24, // px inner padding for cards, adjust for size
-}: {
-  speed?: number;
-  cardPadding?: number;
-}) {
-  // Put filenames (and alt text) here. Files must be in /public/partners/
+export default function PartnersRibbon({ speed = 18 }: { speed?: number }) {
   const logos = useMemo(
     () => [
-      { name: "IBM Cloud", file: "/partners/ibm.png" },
-      { name: "Adani Connex", file: "/partners/adani.png" },
-      { name: "Techno Digital", file: "/partners/techno.png" },
-      { name: "Yotta", file: "/partners/yotta.png" },
-      { name: "Sophos", file: "/partners/sophos.png" },
-      { name: "Scalefusion", file: "/partners/scalefusion.png" },
-      { name: "Oracle", file: "/partners/oracle.png" },
-      { name: "SOTI", file: "/partners/soti.png" },
-      { name: "Another Partner", file: "/partners/partner9.png" },
-      { name: "Partner Ten", file: "/partners/partner10.png" },
-      { name: "Partner Eleven", file: "/partners/partner11.png" },
+      { name: "AWS", file: "/assets/Amazon.png" },
+      { name: "Adani Connex", file: "/assets/adani.png" },
+      { name: "Google Cloud", file: "/assets/Google-Cloud.png" },
+      { name: "Scalefusion", file: "/assets/efficientIP.png" },
+      { name: "Oracle", file: "/assets/CrowdStrike.png" },
+      { name: "SOTI", file: "/assets/rediff.png" },
+      { name: "Partner 9", file: "/assets/vultr.jpeg" },
+      { name: "Partner 10", file: "/assets/tata.png" },
+      { name: "Partner 11", file: "/assets/microsoft.png" },
     ],
     []
   );
 
-  // duplicate for seamless scroll
   const double = [...logos, ...logos];
 
-  // compute animation style using inline style so we can set dynamic duration
   const animationStyle = {
     animation: `marquee ${speed}s linear infinite`,
   };
 
   return (
-    <section className="relative py-14 bg-gradient-to-r from-white via-[#fdf2f2] to-[#fae6e6]">
+    <section className="relative py-16 bg-gradient-to-r from-white via-[#fdf2f2] to-[#fae6e6]">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">
+        <h2 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-10">
           Our <span className="text-primary">Technology Partners</span>
         </h2>
 
-        {/* container */}
-        <div className="relative overflow-hidden rounded-xl">
-          {/* left & right fading overlays */}
-          <div className="partners-overlay-left" aria-hidden />
-          <div className="partners-overlay-right" aria-hidden />
+        <div className="relative overflow-hidden">
+          <div className="partners-overlay-left" />
+          <div className="partners-overlay-right" />
 
-          {/* marquee track */}
+          {/* marquee */}
           <div
             className="partners-marquee"
             style={{
               display: "flex",
-              gap: 24,
+              gap: 60, // more spacing for premium look
               width: "max-content",
               alignItems: "center",
               ...animationStyle,
@@ -77,34 +54,35 @@ export default function PartnersRibbon({
               (e.currentTarget as HTMLElement).style.animationPlayState =
                 "running";
             }}
-            onTouchStart={(e) => {
-              (e.currentTarget as HTMLElement).style.animationPlayState =
-                "paused";
-            }}
-            onTouchEnd={(e) => {
-              (e.currentTarget as HTMLElement).style.animationPlayState =
-                "running";
-            }}
           >
             {double.map((p, idx) => (
               <div
                 key={idx}
-                className="partner-card flex items-center justify-center p-4 md:p-6"
-                style={{
-                  minWidth: 220,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                className="
+                  relative
+                  flex items-center justify-center
+                  w-[200px] h-[90px]
+                  transition-transform 
+                  duration-300 
+                  hover:scale-110 
+                  hover:rotate-1
+                "
               >
-                <div className="w-full h-full flex items-center justify-center">
+                {/* shimmer effect wrapper */}
+                <div className="relative w-full h-full flex items-center justify-center logo-shine">
                   <Image
                     src={p.file}
                     alt={p.name}
-                    width={180}
-                    height={60}
-                    className="partner-logo object-contain"
-                    priority={false}
+                    width={200}
+                    height={90}
+                    className="
+                      object-contain
+                      transition-all
+                      duration-300
+                      hover:drop-shadow-[0_0_20px_rgba(164,42,42,0.65)]
+                      hover:brightness-110 
+                      hover:saturate-125
+                    "
                   />
                 </div>
               </div>

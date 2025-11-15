@@ -7,7 +7,6 @@ import {
   Linkedin,
   Instagram,
   X,
-  Check,
   SendHorizontal,
 } from "lucide-react";
 
@@ -30,31 +29,35 @@ export default function Footer() {
               strategy. It drives engagement, trust, and growth.
             </p>
 
-            {/* EMAIL SUBSCRIBE */}
-            <div className="flex items-center bg-white rounded-md overflow-hidden max-w-xs">
-              <div className="px-3 text-primary">
+            {/* EMAIL SUBSCRIBE — Styled like the reference */}
+            <div className="flex items-center bg-white rounded-full overflow-hidden max-w-md w-full shadow-sm">
+              {/* Icon */}
+              <div className="pl-4 pr-2 text-gray-500">
                 <Mail size={18} />
               </div>
 
+              {/* Input */}
               <input
                 type="email"
                 placeholder="Email Address"
-                className="px-3 py-2 text-black flex-1 outline-none"
+                className="flex-1 py-3 text-sm text-gray-700 outline-none"
               />
 
+              {/* Subscribe Button */}
               <button
                 className="
-                  bg-primary 
-                  text-white 
-                  w-10 h-10 
-                  flex items-center justify-center
-                  hover:bg-[#8c2525] 
-                  transition 
-                  shadow-md 
-                  border border-white/20
-                "
+                    bg-primary
+                    text-white
+                    px-3
+                    py-3
+                    h-full
+                    text-sm
+                    font-semibold
+                    hover:bg-[#8c2525]
+                    transition-all
+                  "
               >
-                <SendHorizontal size={18} strokeWidth={2.5} />
+                <SendHorizontal></SendHorizontal>
               </button>
             </div>
           </div>

@@ -145,3 +145,59 @@ body {
     #fae6e600
   );
 }
+
+/* Infinite marquee animation */
+/* marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* fade sides */
+.partners-overlay-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 12%;
+  background: linear-gradient(to right, #ffffff, #fdf2f2cc, #fae6e600);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.partners-overlay-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 12%;
+  background: linear-gradient(to left, #ffffff, #fdf2f2cc, #fae6e600);
+  pointer-events: none;
+  z-index: 20;
+}
+/* Partner card styling */
+.partner-card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(230, 170, 170, 0.3);
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+/* Glowing hover card */
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 25px rgba(164, 42, 42, 0.28);
+}
+
+/* Logo hover brightness */
+.partner-logo {
+  transition: all 0.25s ease;
+  opacity: 0.9;
+}
+
+.partner-card:hover .partner-logo {
+  opacity: 1;
+  transform: scale(1.07);
+  filter: saturate(1.1);
+}
+
