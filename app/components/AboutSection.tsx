@@ -86,7 +86,7 @@ export default function AboutSection() {
           <div className="absolute -inset-5 bg-primary/10 rounded-2xl opacity-30"></div>
 
           <img
-            src="/about/about.jpg"
+            src="/assets/about1.jpeg"
             alt="Axiatix Team"
             className="rounded-xl shadow-xl object-cover w-full h-[340px] relative z-10"
           />

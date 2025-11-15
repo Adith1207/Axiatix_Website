@@ -3,7 +3,7 @@ import "./globals.css";
 import ClientLayout from "./components/clientLayout";
 
 export const metadata: Metadata = {
-  title: "Axiatix — Modern IT Solutions",
+  title: "Axiatix",
   description: "Enterprise technology services, security, cloud & more.",
 };
 
