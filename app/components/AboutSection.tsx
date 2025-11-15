@@ -1,13 +1,36 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Users, Briefcase, Building2 } from "lucide-react";
 import Counter from "./Counter";
 
+// Generate floating particles ONLY on client to avoid hydration mismatch
+function useFloatingParticles(count: number) {
+  const [particles, setParticles] = useState<
+    { top: number; left: number; delay: number }[]
+  >([]);
+
+  useEffect(() => {
+    const arr = Array.from({ length: count }).map(() => ({
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      delay: Math.random() * 2,
+    }));
+
+    setParticles(arr);
+  }, [count]);
+
+  return particles;
+}
+
 export default function AboutSection() {
+  const particles1 = useFloatingParticles(8);
+  const particles2 = useFloatingParticles(8);
+
   return (
-    <section className="relative w-full pt-0 pb-24 overflow-hidden">
+    <section className="relative w-full overflow-hidden pt-0 pb-24">
       {/* TOP WAVE DIVIDER */}
       <div className="w-full overflow-hidden leading-none -mt-1">
         <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +44,7 @@ export default function AboutSection() {
       {/* BACKGROUND GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#f7eaea] to-[#f1d6d6]"></div>
 
-      {/* FLOATING BLUR SHAPES */}
+      {/* FLOATING BACKGROUND SHAPES */}
       <motion.div
         className="absolute w-40 h-40 rounded-full bg-white/20 blur-2xl top-20 left-20"
         animate={{ y: [0, -30, 0] }}
@@ -51,6 +74,7 @@ export default function AboutSection() {
         </svg>
       </motion.div>
 
+      {/* MAIN CONTENT */}
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center z-10">
         {/* IMAGE WITH GLOW */}
         <motion.div
@@ -60,7 +84,6 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          {/* GLOW BEHIND IMAGE */}
           <div className="absolute -inset-5 bg-primary/20 blur-2xl rounded-2xl"></div>
 
           <img
@@ -70,7 +93,7 @@ export default function AboutSection() {
           />
         </motion.div>
 
-        {/* TEXT */}
+        {/* TEXT + CTA BUTTON */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +116,6 @@ export default function AboutSection() {
             their digital transformation journey.
           </p>
 
-          {/* CTA BUTTON */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
@@ -126,72 +148,84 @@ export default function AboutSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10"
+        className="
+          max-w-6xl mx-auto mt-24 
+          grid grid-cols-1 md:grid-cols-3 gap-8 text-center 
+          relative z-10
+        "
       >
-        {/* STAT BOX */}
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="
-            p-6 
-            rounded-xl 
-            bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] 
-            shadow-xl 
-            border border-black/20 
-            relative overflow-hidden
+        {[
+          { label: "Years Experience", value: 10, Icon: Briefcase },
+          { label: "Happy Clients", value: 120, Icon: Users },
+          { label: "Projects Delivered", value: 200, Icon: Building2 },
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ scale: 0.85, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            className="
+              relative p-8 rounded-xl shadow-2xl overflow-hidden 
+              bg-gradient-to-br from-[#a42a2a] to-[#7d1d1d]
+              border border-black/30 group
+              hover:scale-[1.03] hover:shadow-red-500/30
+              transition-all duration-300
             "
-        >
-          {/* glossy top highlight */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20 pointer-events-none"></div>
+          >
+            {/* FLOATING PARTICLES */}
+            <div className="absolute inset-0 pointer-events-none">
+              {particles1.map((p, i) => (
+                <motion.span
+                  key={i}
+                  className="absolute w-1.5 h-1.5 bg-white/40 rounded-full"
+                  animate={{
+                    y: [0, -15, 0],
+                    x: [0, 10, 0],
+                    opacity: [0.2, 0.5, 0.2],
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 3,
+                    repeat: Infinity,
+                    delay: p.delay,
+                  }}
+                  style={{ top: `${p.top}%`, left: `${p.left}%` }}
+                ></motion.span>
+              ))}
+            </div>
 
-          <h3 className="text-4xl font-extrabold text-primary flex justify-center items-center gap-1 drop-shadow-lg">
-            <Counter to={10} duration={800} />+
-          </h3>
-          <p className="text-gray-300 font-medium mt-2">Years Experience</p>
-        </motion.div>
+            {/* SHINE */}
+            <div
+              className="
+                absolute inset-0 
+                bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                opacity-0 group-hover:opacity-20
+                transition-all duration-500
+                pointer-events-none
+                animate-[shineSweep_2s_ease-in-out_infinite]
+              "
+            />
 
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="
-            p-6 
-            rounded-xl 
-            bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] 
-            shadow-xl 
-            border border-black/20 
-            relative overflow-hidden
-            "
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20 pointer-events-none"></div>
+            {/* ICON */}
+            <item.Icon
+              className="mx-auto mb-4 text-[#f5e6d3] opacity-90"
+              size={36}
+            />
 
-          <h3 className="text-4xl font-extrabold text-primary flex justify-center items-center gap-1 drop-shadow-lg">
-            <Counter to={120} duration={900} />+
-          </h3>
-          <p className="text-gray-300 font-medium mt-2">Happy Clients</p>
-        </motion.div>
+            {/* GLOW BEHIND NUMBER */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-24 h-24 bg-primary/20 blur-3xl rounded-full"></div>
+            </div>
 
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="
-            p-6 
-            rounded-xl 
-            bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] 
-            shadow-xl 
-            border border-black/20 
-            relative overflow-hidden
-            "
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20 pointer-events-none"></div>
+            {/* COUNTER */}
+            <h3 className="text-5xl font-extrabold text-[#f5e6d3] relative z-10 drop-shadow-xl">
+              <Counter to={item.value} duration={800} />+
+            </h3>
 
-          <h3 className="text-4xl font-extrabold text-primary flex justify-center items-center gap-1 drop-shadow-lg">
-            <Counter to={200} duration={900} />+
-          </h3>
-          <p className="text-gray-300 font-medium mt-2">Projects Delivered</p>
-        </motion.div>
+            <p className="text-[#f5e6d3]/90 font-medium mt-3 relative z-10">
+              {item.label}
+            </p>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

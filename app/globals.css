@@ -59,3 +59,8 @@ body {
   background-size: 400% 400%;
   animation: gradientFlow 12s ease infinite;
 }
+
+@keyframes shineSweep {
+  0% { transform: translateX(-150%) rotate(20deg); }
+  100% { transform: translateX(150%) rotate(20deg); }
+}
