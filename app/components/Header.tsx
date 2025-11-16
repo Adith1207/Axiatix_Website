@@ -15,7 +15,7 @@ export default function Header() {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" }, // mobile only
-    { label: "Our Focus", href: "/focus" },
+    { label: "Our Focus", href: "/Our_Focus" },
     { label: "Partners", href: "/partners" }, // mobile only
     { label: "Contact", href: "/contact" },
   ];
