@@ -6,42 +6,42 @@ import Link from "next/link";
 const services = [
   {
     title: "Multi Cloud Services",
-    image: "/assets/services/cloud.jpg",
+    image: "/Services/multiCloud.jpeg",
     link: "/services/multi-cloud",
   },
   {
     title: "Datacenter & Disaster Recovery",
-    image: "/assets/services/datacenter.jpg",
+    image: "/Services/data_center.jpeg",
     link: "/services/datacenter-disaster-recovery",
   },
   {
     title: "Managed Services",
-    image: "/assets/services/managed.jpg",
+    image: "/Services/manageServices.jpeg",
     link: "/services/managed-services",
   },
   {
     title: "Cloud Infrastructure Management",
-    image: "/assets/services/infrastructure.jpg",
+    image: "/Services/cloudInfra.jpeg",
     link: "/services/cloud-infrastructure-management",
   },
   {
     title: "Security & Cybersecurity",
-    image: "/assets/services/security.jpg",
+    image: "Services/cyber.jpeg",
     link: "/services/security-cybersecurity",
   },
   {
     title: "Cloud Cost Optimization",
-    image: "/assets/services/cost.jpg",
+    image: "/Services/cloud_cost.webp",
     link: "/services/cloud-cost-optimization",
   },
   {
     title: "Unified Endpoint Management",
-    image: "/assets/services/endpoint.jpg",
+    image: "/Services/uem.webp",
     link: "/services/unified-endpoint",
   },
   {
     title: "Generative AI",
-    image: "/assets/services/ai.jpg",
+    image: "/Services/AI.jpeg",
     link: "/services/generative-ai",
   },
 ];
