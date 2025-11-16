@@ -211,13 +211,53 @@ body {
   animation: meshMove 9s ease-in-out infinite alternate;
 }
 
-@keyframes gradientFlow {
-  0% { transform: translate(-10%, -10%) scale(1.1); }
-  50% { transform: translate(5%, 5%) scale(1.25); }
-  100% { transform: translate(-10%, -10%) scale(1.1); }
+@keyframes axMeshFlow {
+  0% { transform: scale(1.1) translate(-5%, -5%); }
+  50% { transform: scale(1.25) translate(6%, 4%); }
+  100% { transform: scale(1.1) translate(-5%, -5%); }
 }
-.animate-gradientFlow {
-  animation: gradientFlow 9s ease-in-out infinite alternate;
+
+.animate-ax-mesh {
+  animation: axMeshFlow 9s ease-in-out infinite alternate;
+}
+
+/* Aurora smoke wave animation */
+.aurora-animation {
+  background: radial-gradient(circle at 20% 30%, #ff8787 0%, transparent 60%),
+              radial-gradient(circle at 75% 60%, #ffcccc 0%, transparent 60%),
+              radial-gradient(circle at 45% 80%, #a42a2a 0%, transparent 55%);
+  filter: blur(70px);
+  animation: auroraMove 9s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+  0%   { transform: translate(-8%, -6%) scale(1.1) rotate(0deg); }
+  50%  { transform: translate(8%, 6%) scale(1.25) rotate(8deg); }
+  100% { transform: translate(-8%, -6%) scale(1.1) rotate(-6deg); }
+}
+
+/* --- Aurora Background --- */
+.aurora-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 35%, #a42a2a 0%, transparent 55%),
+              radial-gradient(circle at 80% 65%, #e06161 0%, transparent 60%),
+              radial-gradient(circle at 50% 85%, #f7dada 0%, transparent 65%);
+  filter: blur(90px) brightness(1.15);
+  animation: auroraMove 10s ease-in-out infinite alternate;
+  opacity: 0.85; /* increase visibility */
+}
+
+@keyframes auroraMove {
+  0% {
+    transform: translate(-6%, -6%) scale(1.1) rotate(-2deg);
+  }
+  50% {
+    transform: translate(6%, 4%) scale(1.25) rotate(6deg);
+  }
+  100% {
+    transform: translate(-6%, -4%) scale(1.1) rotate(-2deg);
+  }
 }
 
 
