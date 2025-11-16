@@ -121,76 +121,63 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ====================== VISION & MISSION ====================== */}
-      {/* ====================== VISION & MISSION ====================== */}
+      {/* Mission & Vision */}
+
       <section
         id="vision"
         className="bg-gradient-to-br from-[#a42a2a] to-[#7d1d1d] py-20 text-white"
       >
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-          {/* VISION */}
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="
-        relative overflow-hidden rounded-2xl p-8 border border-white/20
-        backdrop-blur-xl bg-white/5 shadow-xl cursor-pointer group
-      "
-          >
-            {/* gradient expansion background */}
-            <div
+          {[
+            {
+              title: "Our Vision",
+              icon: Rocket,
+              desc: "To become a global leader delivering secure, scalable & automated digital ecosystems.",
+            },
+            {
+              title: "Our Mission",
+              icon: Target,
+              desc: "To empower enterprises with secure, automated & future-ready technological outcomes.",
+            },
+          ].map(({ title, icon: Icon, desc }, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="
-          absolute inset-0 bg-gradient-to-br from-[#a42a2a] via-[#7d1d1d] to-[#541313]
-          origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out
+          relative overflow-hidden rounded-2xl p-8 cursor-pointer group
+          border border-white/15 bg-white/10 backdrop-blur-xl
+          shadow-[0_8px_30px_rgba(255,255,255,0.05)]
+          transition-all duration-500
+          hover:shadow-[0_10px_40px_rgba(50,214,196,0.4)]
         "
-            />
+            >
+              {/* Hover Reveal Layer */}
+              <div
+                className="
+            absolute inset-0
+            bg-gradient-to-br from-[#32d6c4] via-[#26a9a0] to-[#1c7c73]
+            opacity-0 translate-y-full rotate-2
+            group-hover:opacity-100 group-hover:translate-y-0
+            transition-all duration-700 ease-out
+            mix-blend-soft-light
+          "
+              />
 
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <Rocket
-                  size={28}
-                  className="text-white/90 group-hover:text-white transition-colors duration-300"
-                />
-                <h3 className="text-2xl font-bold">Our Vision</h3>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <Icon
+                    size={28}
+                    className="text-white/90 group-hover:text-white transition-colors duration-300"
+                  />
+                  <h3 className="text-2xl font-bold">{title}</h3>
+                </div>
+                <p className="text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+                  {desc}
+                </p>
               </div>
-              <p className="text-white/85 leading-relaxed group-hover:text-white transition-colors duration-300">
-                To become a global leader delivering secure, scalable &
-                automated digital ecosystems.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* MISSION */}
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="
-        relative overflow-hidden rounded-2xl p-8 border border-white/20
-        backdrop-blur-xl bg-white/5 shadow-xl cursor-pointer group
-      "
-          >
-            {/* gradient expansion background (from right) */}
-            <div
-              className="
-          absolute inset-0 bg-gradient-to-br from-[#a42a2a] via-[#7d1d1d] to-[#541313]
-          origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out
-        "
-            />
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <Target
-                  size={28}
-                  className="text-white/90 group-hover:text-white transition-colors duration-300"
-                />
-                <h3 className="text-2xl font-bold">Our Mission</h3>
-              </div>
-              <p className="text-white/85 leading-relaxed group-hover:text-white transition-colors duration-300">
-                To empower enterprises with secure, automated & future-ready
-                technological outcomes.
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -216,22 +203,35 @@ export default function AboutPage() {
               drives innovation & enterprise-grade delivery.
             </p>
 
-            {/* ANIMATED RED GRADIENT HOVER CARD */}
+            {/* BRAND HOVER CARD */}
             <div
               className="
-                group relative rounded-3xl p-7 overflow-hidden border border-[#a42a2a]/30
-                backdrop-blur-xl bg-white/60 shadow-[0_8px_20px_rgba(164,42,42,0.12)]
-                transition-all duration-700
-                hover:bg-gradient-to-br hover:from-[#b83232] hover:via-[#8c1e1e] hover:to-[#5f0f0f]
-                hover:border-transparent hover:shadow-[0_12px_35px_rgba(164,42,42,0.45)]
-              "
+          group relative rounded-3xl p-7 overflow-hidden border border-[#a42a2a]/35
+          backdrop-blur-xl bg-white/60 shadow-[0_8px_20px_rgba(164,42,42,0.12)]
+          transition-all duration-700
+          hover:shadow-[0_12px_38px_rgba(164,42,42,0.45)]
+          hover:border-transparent
+        "
             >
-              {/* Fade in overlay */}
+              {/* Ruby Gradient Reveal */}
               <div
                 className="
-                  absolute inset-0 bg-gradient-to-br from-[#b83232] via-[#8c1e1e] to-[#5f0f0f]
-                  opacity-0 group-hover:opacity-100 transition-opacity duration-700
-                "
+            absolute inset-0
+            bg-gradient-to-br from-[#a42a2a] via-[#c03c3c] to-[#7b1f1f]
+            opacity-0 group-hover:opacity-100
+            transition-opacity duration-700 ease-out
+          "
+              />
+
+              {/* Gloss Wave Layer */}
+              <div
+                className="
+            pointer-events-none
+            absolute inset-0 bg-white/25 blur-xl
+            opacity-0 translate-x-[-120%] skew-x-12
+            group-hover:opacity-70 group-hover:translate-x-[120%]
+            transition-all duration-[900ms] ease-out
+          "
               />
 
               {/* CARD CONTENT */}
@@ -239,27 +239,14 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <MapPin
                     size={28}
-                    className="
-                      text-[#a42a2a] group-hover:text-white
-                      transition-colors duration-500
-                    "
+                    className="text-[#a42a2a] group-hover:text-white transition-colors duration-500"
                   />
-                  <h3
-                    className="
-                      text-xl font-extrabold text-gray-900
-                      group-hover:text-white transition-colors duration-500
-                    "
-                  >
+                  <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-white transition-colors duration-500">
                     Head Office
                   </h3>
                 </div>
 
-                <p
-                  className="
-                    text-[17px] text-gray-700 font-medium leading-[1.6]
-                    group-hover:text-white transition-colors duration-500
-                  "
-                >
+                <p className="text-[17px] text-gray-700 font-medium leading-[1.6] group-hover:text-white transition-colors duration-500">
                   SPRINGS HAVEN 27/1, ARK COLONY, <br />
                   ELDAMS ROAD, ALWARPET, <br />
                   CHENNAI — <span className="font-bold">600018</span>
@@ -267,30 +254,20 @@ export default function AboutPage() {
 
                 <div
                   className="
-                    inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold
-                    rounded-full bg-[#a42a2a]/10 text-[#a42a2a] border border-[#a42a2a]/25
-                    group-hover:bg-white/25 group-hover:text-white group-hover:border-white
-                    transition-all duration-500
-                  "
+              inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold
+              rounded-full bg-[#a42a2a]/10 text-[#a42a2a] border border-[#a42a2a]/25
+              group-hover:bg-white/25 group-hover:text-white group-hover:border-white
+              transition-all duration-500
+            "
                 >
                   🇮🇳 India Headquarters
                 </div>
 
-                <div className="pt-3 border-t border-[#a42a2a]/15 group-hover:border-white/40">
-                  <p
-                    className="
-                      font-semibold text-gray-900
-                      group-hover:text-white transition-colors duration-500
-                    "
-                  >
+                <div className="pt-3 border-t border-[#a42a2a]/15 group-hover:border-white/40 transition-colors duration-500">
+                  <p className="font-semibold text-gray-900 group-hover:text-white transition-colors duration-500">
                     Working Hours
                   </p>
-                  <p
-                    className="
-                      text-gray-700 font-medium
-                      group-hover:text-gray-100 transition-colors duration-500
-                    "
-                  >
+                  <p className="text-gray-700 font-medium group-hover:text-gray-100 transition-colors duration-500">
                     Mon — Sat • 10:00 AM to 06:00 PM
                   </p>
                 </div>
@@ -304,9 +281,9 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
             className="
-              rounded-2xl overflow-hidden shadow-xl border border-[#a42a2a]/20
-              hover:shadow-[0_10px_34px_rgba(164,42,42,0.25)] transition-all duration-500
-            "
+        rounded-2xl overflow-hidden shadow-xl border border-[#a42a2a]/20
+        hover:shadow-[0_10px_34px_rgba(164,42,42,0.25)] transition-all duration-500
+      "
           >
             <iframe
               width="100%"
