@@ -3,12 +3,19 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
+interface IncrementCounterProps {
+  from?: number;
+  to: number;
+  duration?: number;
+  className?: string;
+}
+
 export default function IncrementCounter({
   from = 0,
   to,
   duration = 2000, // All counters finish in same time
   className = "",
-}) {
+}: IncrementCounterProps) {
   const [value, setValue] = useState(from);
   const { ref, inView } = useInView({ triggerOnce: true });
 

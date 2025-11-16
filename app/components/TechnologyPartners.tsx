@@ -26,7 +26,7 @@ export default function PartnersRibbon({ speed = 18 }: { speed?: number }) {
   };
 
   return (
-    <section className="relative py-16 bg-gradient-to-r from-white via-[#fdf2f2] to-[#fae6e6]">
+    <section className="relative py-16 bg-gradient-to-r from-white via-[#faf7f8] to-[#f6f3f4]">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-10">
           Our <span className="text-primary">Technology Partners</span>
