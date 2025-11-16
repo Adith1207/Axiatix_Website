@@ -177,7 +177,7 @@ export default function AboutSection() {
             <item.Icon className="mx-auto mb-4 text-[#f5e6d3]" size={36} />
 
             <h3 className="text-5xl font-extrabold text-[#f5e6d3] relative z-10">
-              <Counter to={item.value} duration={800} />+
+              <Counter to={item.value} />+
             </h3>
 
             <p className="text-[#f5e6d3]/90 font-medium mt-3">{item.label}</p>
