@@ -49,24 +49,24 @@ export default function PartnersDropdown() {
               backdrop-blur-2xl bg-white/15
               border border-white/30 shadow-[0_8px_35px_rgba(0,0,0,0.15)]
             "
-            style={{ left: "-250px" }} /* adjust if needed */
+            style={{ left: "-250px" }}
           >
-            {/* Glow effect */}
+            {/* Ambient Glow */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute -top-10 right-0 w-[200px] h-[200px] bg-white/20 blur-3xl rounded-full opacity-40" />
             </div>
 
-            {/* 4 Column Layout */}
+            {/* 4-Column Layout */}
             <div className="grid grid-cols-4 gap-6 relative z-10">
               {Object.entries(partnerGroups).map(
                 ([category, items], colIndex) => (
-                  <div key={colIndex} className="space-y-3 min-w-[140px]">
-                    {/* HEADER */}
-                    <h3 className="text-sm font-semibold tracking-wide text-[#a42a2a] uppercase">
+                  <div key={colIndex} className="space-y-3 min-w-[150px]">
+                    {/* Category Title */}
+                    <h3 className="text-[15px] tracking-wide font-semibold text-[#a42a2a] uppercase">
                       {category}
                     </h3>
 
-                    {/* ITEMS */}
+                    {/* Items */}
                     <div className="space-y-3">
                       {items.map((partner, i) => (
                         <motion.div
@@ -80,7 +80,7 @@ export default function PartnersDropdown() {
                           shadow-[0_4px_10px_rgba(0,0,0,0.08)]
                         "
                         >
-                          {/* Hover red gradient */}
+                          {/* Red Gradient Hover */}
                           <span
                             className="
                             absolute inset-0 opacity-0 group-hover:opacity-100
@@ -89,7 +89,7 @@ export default function PartnersDropdown() {
                           "
                           />
 
-                          {/* Shine animation */}
+                          {/* Shine */}
                           <span
                             className="
                             absolute top-0 left-[-120%] w-[200%] h-full
@@ -101,7 +101,7 @@ export default function PartnersDropdown() {
 
                           <span
                             className="
-                            text-[13px] text-gray-800 font-medium relative z-10
+                            text-[15px] text-gray-800 font-medium relative z-10
                             group-hover:text-white transition
                           "
                           >
@@ -118,7 +118,6 @@ export default function PartnersDropdown() {
         )}
       </AnimatePresence>
 
-      {/* Shine keyframes */}
       <style>{`
         @keyframes shine {
           0% { transform: translateX(-150%); opacity: 0; }
