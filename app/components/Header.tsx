@@ -17,7 +17,7 @@ export default function Header() {
     { label: "Services", href: "/services" }, // mobile only
     { label: "Our Focus", href: "/Our_Focus" },
     { label: "Partners", href: "/partners" }, // mobile only
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/Contact" },
   ];
 
   return (

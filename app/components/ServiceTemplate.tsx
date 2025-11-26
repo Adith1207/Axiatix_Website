@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 type Feature = {
   title: string;
@@ -10,14 +11,14 @@ type Feature = {
 
 interface ServiceTemplateProps {
   name: string;
-  tagline: string; // short one-liner under title
-  intro: string; // 2–3 line intro max
+  tagline: string;
+  intro: string;
   icon: LucideIcon;
   heroHighlight?: string;
-  features: Feature[]; // “What you gain” bullets
-  outcome: string; // short outcome line
-  ctaText: string; // heading in CTA card
-  ctaSubtext: string; // small description in CTA
+  features: Feature[];
+  outcome: string;
+  ctaText: string;
+  ctaSubtext: string;
 }
 
 export default function ServiceTemplate({
@@ -33,97 +34,134 @@ export default function ServiceTemplate({
 }: ServiceTemplateProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-[#faf7f8] to-[#e9cccc]">
-      {/* HERO */}
-      <section className="relative overflow-hidden py-16 md:py-20">
-        {/* soft glows */}
-        <div className="pointer-events-none absolute -top-24 -left-16 h-56 w-56 rounded-full bg-[#a42a2a]/18 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-28 right-0 h-64 w-64 rounded-full bg-[#e9cccc]/80 blur-3xl" />
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden pt-36 md:pt-40 pb-24">
+        {/* BACKGROUND GLOWS */}
+        <div className="pointer-events-none absolute -bottom-40 right-0 h-[480px] w-[480px] bg-[#a42a2a]/25 blur-[140px] rounded-full" />
+        <div className="pointer-events-none absolute top-0 right-0 h-[380px] w-[380px] bg-[#e9cccc]/60 blur-[120px] rounded-full" />
 
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-center lg:justify-between">
-          {/* Text */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* LEFT SECTION */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
             className="max-w-2xl"
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/80 px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#a42a2a] shadow-sm">
-              <span className="inline-block h-2 w-2 rounded-full bg-[#a42a2a]" />
+            <div
+              className="
+          mb-5 inline-flex items-center gap-2 rounded-full
+          border border-[#8e1f1f]/40 bg-white
+          px-5 py-2 text-[0.75rem] md:text-sm font-bold uppercase tracking-[0.22em]
+          text-[#8e1f1f]
+        "
+            >
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#8e1f1f]" />
               {heroHighlight}
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
               {name}
             </h1>
 
-            <p className="mt-3 text-base md:text-lg text-gray-800">{tagline}</p>
+            <p className="mt-4 text-lg md:text-xl text-gray-800 font-medium">
+              {tagline}
+            </p>
 
-            <p className="mt-3 text-sm md:text-base text-gray-600 max-w-xl">
+            <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
               {intro}
             </p>
           </motion.div>
 
-          {/* Icon Card */}
+          {/* RIGHT — CARD WITH TRUE DIAGONAL WIPE */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            className="relative"
+            transition={{ duration: 0.55 }}
+            className="relative flex justify-end"
           >
-            <div className="relative w-full max-w-sm rounded-3xl border border-white/70 bg-white/85 p-7 shadow-[0_18px_45px_rgba(0,0,0,0.16)] backdrop-blur-2xl">
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a42a2a]/10">
-                <Icon className="h-7 w-7 text-[#a42a2a]" />
+            <motion.div
+              whileHover={{ scale: 1.01, y: -3 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="
+          group relative w-full max-w-md overflow-hidden
+          rounded-b-3xl rounded-t-none
+          border border-[#a42a2a]/50 bg-white/85 backdrop-blur-xl
+          shadow-[0_12px_34px_rgba(0,0,0,0.12)]
+          pt-10 pb-10 px-8
+        "
+            >
+              {/* DIAGONAL WIPE LAYER */}
+              <div
+                className="
+            diagonal-layer absolute inset-0 z-0 opacity-0
+            bg-gradient-to-br from-[#8e1f1f] via-[#a42a2a] to-[#6e1515]
+            transition-opacity duration-200
+            group-hover:opacity-100
+            group-hover:animate-diagonalWipe
+          "
+              />
+
+              {/* ANIMATION + CLIPPATH */}
+              <style>{`
+          @keyframes diagonalWipe {
+            0% { clip-path: polygon(0% 100%, 0% 100%, 0% 100%); }
+            40% { clip-path: polygon(0% 100%, 100% 100%, 0% 0%); }
+            100% { clip-path: polygon(0% 100%, 100% 100%, 100% 0%); }
+          }
+          .animate-diagonalWipe {
+            animation: diagonalWipe 0.85s ease-out forwards;
+          }
+        `}</style>
+
+              {/* CONTENT */}
+              <div className="relative z-10">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#a42a2a]/10 group-hover:bg-transparent">
+                  <Icon className="h-10 w-10 text-[#a42a2a] transition-colors duration-300 group-hover:text-white" />
+                </div>
+
+                <p
+                  className="
+              text-base md:text-lg text-gray-700 leading-relaxed
+              transition-colors duration-300 group-hover:text-white
+            "
+                >
+                  Designed for enterprises demanding reliability, resilience and
+                  precision — with no room for compromise.
+                </p>
               </div>
-              <p className="text-xs md:text-sm text-gray-700">
-                Designed for organizations that expect reliable, secure and
-                scalable digital infrastructure without adding complexity.
-              </p>
-
-              <div className="mt-5 h-[1px] w-full bg-gradient-to-r from-transparent via-[#a42a2a]/40 to-transparent" />
-
-              <p className="mt-3 text-[0.7rem] text-gray-500">
-                Delivered with Axiatix playbooks, best practices and certified
-                experts.
-              </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* FEATURE GRID */}
-      <section className="pb-10 pt-4">
-        <div className="mx-auto max-w-6xl px-6">
-          <motion.div
+      <section className="pb-20 pt-6">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.h2
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-6 flex flex-col gap-1 md:flex-row md:items-end md:justify-between"
+            className="text-2xl md:text-3xl font-semibold text-gray-900 mb-10 text-center"
           >
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
-                What you gain with{" "}
-                <span className="text-[#a42a2a]">Axiatix {name}</span>
-              </h2>
-              <p className="text-sm text-gray-600 mt-1">
-                Short, outcome-first benefits your customers can relate to.
-              </p>
-            </div>
-          </motion.div>
+            What You Gain with{" "}
+            <span className="text-[#a42a2a]">Axiatix {name}</span>
+          </motion.h2>
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={{
-              hidden: { opacity: 0, y: 24 },
+              hidden: { opacity: 0, y: 25 },
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: { staggerChildren: 0.1 },
+                transition: { staggerChildren: 0.12 },
               },
             }}
-            className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
             {features.map((feature, idx) => (
               <motion.div
@@ -132,29 +170,47 @@ export default function ServiceTemplate({
                   hidden: { opacity: 0, y: 18 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-5 shadow-md backdrop-blur-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.14)] hover:border-[#a42a2a]/60"
+                className="
+                  group relative overflow-hidden rounded-2xl border border-[#ffffff70]
+                  bg-white p-6 shadow-md backdrop-blur-xl
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-2 hover:shadow-[0_18px_50px_rgba(164,42,42,0.35)]
+                "
               >
-                {/* red hover sweep */}
-                <span
+                {/* Gradient red overlay */}
+                <div
                   className="
-                    pointer-events-none absolute inset-0
-                    bg-gradient-to-br from-transparent via-[#a42a2a]/10 to-transparent
+                    absolute inset-0 rounded-2xl
+                    bg-gradient-to-br from-[#a42a2a] via-[#8f1f1f] to-[#6e1515]
                     opacity-0 transition-opacity duration-300
                     group-hover:opacity-100
                   "
                 />
+
+                {/* Radial spotlight */}
+                <div
+                  className="
+                    absolute -right-14 -top-14 h-40 w-40 rounded-full
+                    bg-white/25 blur-2xl opacity-0
+                    transition-opacity duration-300
+                    group-hover:opacity-80
+                  "
+                />
+
                 <div className="relative z-10">
-                  <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1.5">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+
+                  <p className="text-sm md:text-base text-gray-600 group-hover:text-white/90 transition-colors duration-300 mt-2 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
+
                 <div
                   className="
-                    relative mt-4 h-[2px] w-0 rounded-full bg-[#a42a2a]
-                    transition-all duration-300 group-hover:w-20
+                    relative mt-4 h-[3px] w-0 rounded-full bg-white
+                    transition-all duration-300 group-hover:w-24
                   "
                 />
               </motion.div>
@@ -164,9 +220,8 @@ export default function ServiceTemplate({
       </section>
 
       {/* OUTCOME + CTA */}
-      <section className="pb-20 pt-6">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-center lg:justify-between">
-          {/* Outcome block */}
+      <section className="pb-24 pt-6">
+        <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-10">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -174,46 +229,45 @@ export default function ServiceTemplate({
             transition={{ duration: 0.45 }}
             className="flex-1"
           >
-            <div className="rounded-3xl border border-white/70 bg-white/95 p-6 shadow-md backdrop-blur-xl">
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
-                The outcome
+            <div className="rounded-3xl border border-white/70 bg-white/95 p-10 shadow-md backdrop-blur-xl">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                The Outcome
               </h3>
-              <p className="text-sm md:text-base text-gray-700">{outcome}</p>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                {outcome}
+              </p>
             </div>
           </motion.div>
 
-          {/* CTA card */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
             className="flex-1"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-[#a42a2a]/40 bg-gradient-to-r from-[#a42a2a] via-[#8f1f1f] to-[#6e1515] p-6 text-white shadow-xl">
-              {/* soft shine */}
-              <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/20 blur-3xl" />
-              <div className="relative z-10">
-                <h3 className="text-lg md:text-xl font-semibold mb-2">
-                  {ctaText}
-                </h3>
-                <p className="text-sm md:text-base text-white/90 mb-4">
-                  {ctaSubtext}
-                </p>
+            <div className="relative overflow-hidden rounded-3xl border border-[#a42a2a]/65 bg-gradient-to-br from-[#a42a2a] via-[#8f1f1f] to-[#6e1515] p-10 text-white shadow-xl">
+              <h3 className="text-xl md:text-2xl font-semibold mb-3">
+                {ctaText}
+              </h3>
+              <p className="text-sm md:text-base text-white/90 mb-6">
+                {ctaSubtext}
+              </p>
+              <Link href="/Contact">
                 <button
                   className="
                     inline-flex items-center justify-center rounded-full
-                    bg-[#ffffff] text-[#a42a2a]
-                    px-5 py-2.5 text-sm font-semibold
-                    shadow-md transition
+                    bg-white text-[#a42a2a] px-8 py-3
+                    font-semibold text-base md:text-lg
+                    transition-all duration-300
                     hover:bg-[#a42a2a] hover:text-white
-                    hover:shadow-[0_0_18px_rgba(164,42,42,0.7)]
-                    active:scale-[0.98]
-                  "
+                    hover:shadow-[0_0_30px_rgba(164,42,42,0.8)]
+                    hover:scale-[1.05] active:scale-[0.97]
+                    "
                 >
                   Talk to Axiatix experts
                 </button>
-              </div>
+              </Link>
             </div>
           </motion.div>
         </div>
