@@ -182,18 +182,18 @@ export default function Footer() {
             <div className="flex items-start gap-3 mb-3">
               <MapPin size={20} />
               <p className="text-sm leading-relaxed">
-                No: 35C, 13th Street, Madha Nagar Main Road,
+                Springs Haven 27/1, Ark Colony,
                 <br />
-                Madhananthapuram, Porur,
+                Eldams Road, Alwarpet,
                 <br />
-                Chennai - 600125
+                Chennai - 600018
               </p>
             </div>
 
             {/* PHONE */}
             <div className="flex items-center gap-3 mb-3">
               <Phone size={18} />
-              <p className="text-sm">+91-99443 10289</p>
+              <p className="text-sm">+91-9626018181</p>
             </div>
 
             {/* EMAIL */}
