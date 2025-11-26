@@ -8,6 +8,7 @@ import {
   MapPin,
   Linkedin,
   Instagram,
+  Facebook,
   X,
   SendHorizontal,
 } from "lucide-react";
@@ -180,7 +181,7 @@ export default function Footer() {
 
             {/* ADDRESS */}
             <div className="flex items-start gap-3 mb-3">
-              <MapPin size={20} />
+              <MapPin size={20} className="text-[#7A1E1E]" />
               <p className="text-sm leading-relaxed">
                 Springs Haven 27/1, Ark Colony,
                 <br />
@@ -192,68 +193,97 @@ export default function Footer() {
 
             {/* PHONE */}
             <div className="flex items-center gap-3 mb-3">
-              <Phone size={18} />
+              <Phone size={18} className="text-[#7A1E1E]" />
               <p className="text-sm">+91-9626018181</p>
             </div>
 
             {/* EMAIL */}
             <div className="flex items-center gap-3 mb-6">
-              <Mail size={18} />
-              <p className="text-sm">sales@axiatix.com</p>
+              <Mail size={18} className="text-[#7A1E1E]" />
+              <p className="text-sm">contact@axiatix.com</p>
             </div>
 
             {/* SOCIAL ICONS */}
             <div className="flex gap-4">
-              <div
+              {/* X (Twitter) */}
+              <a
+                href="https://x.com/axiatix" // replace with real link
+                target="_blank"
                 className="
-                  w-9 h-9 
-                  bg-white 
-                  rounded-md 
-                  flex items-center justify-center 
-                  text-primary 
-                  cursor-pointer
-                  transition-all duration-200
-                  hover:bg-primary 
-                  hover:text-white 
-                  shadow-sm
-                "
+        w-9 h-9 
+        bg-white 
+        rounded-md 
+        flex items-center justify-center 
+        text-[#7A1E1E]
+        cursor-pointer
+        transition-all duration-200
+        hover:bg-[#7A1E1E] 
+        hover:text-white 
+        shadow-sm
+      "
               >
                 <X size={18} />
-              </div>
+              </a>
 
-              <div
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/axiatix/" // replace with real link
+                target="_blank"
                 className="
-                  w-9 h-9 
-                  bg-white 
-                  rounded-md 
-                  flex items-center justify-center 
-                  text-primary 
-                  cursor-pointer
-                  transition-all duration-200
-                  hover:bg-primary 
-                  hover:text-white 
-                  shadow-sm
-                "
+        w-9 h-9 
+        bg-white 
+        rounded-md 
+        flex items-center justify-center 
+        text-[#7A1E1E]
+        cursor-pointer
+        transition-all duration-200
+        hover:bg-[#7A1E1E] 
+        hover:text-white 
+        shadow-sm
+      "
               >
                 <Linkedin size={18} />
-              </div>
+              </a>
 
-              <div
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/axiatixconsulting?igsh=c2ZlZXN3MWZkdnFh"
+                target="_blank"
                 className="
-                  w-9 h-9 
-                  bg-white 
-                  rounded-md 
-                  flex items-center justify-center 
-                  text-primary 
-                  cursor-pointer
-                  transition-all duration-200
-                  hover:bg-primary 
-                  hover:text-white 
-                  shadow-sm
-                "
+        w-9 h-9 
+        bg-white 
+        rounded-md 
+        flex items-center justify-center 
+        text-[#7A1E1E]
+        cursor-pointer
+        transition-all duration-200
+        hover:bg-[#7A1E1E] 
+        hover:text-white 
+        shadow-sm
+      "
               >
                 <Instagram size={18} />
-              </div>
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/share/14P3HvruWog/" // replace with real link
+                target="_blank"
+                className="
+        w-9 h-9 
+        bg-white 
+        rounded-md 
+        flex items-center justify-center 
+        text-[#7A1E1E]
+        cursor-pointer
+        transition-all duration-200
+        hover:bg-[#7A1E1E] 
+        hover:text-white 
+        shadow-sm
+      "
+              >
+                <Facebook size={18} />
+              </a>
             </div>
           </div>
         </div>
