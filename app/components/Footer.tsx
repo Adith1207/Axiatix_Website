@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   Mail,
   Phone,
@@ -66,10 +68,38 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-3 text-sm">
-              <li>› Home</li>
-              <li>› About Us</li>
-              <li>› Our Focus</li>
-              <li>› Contact Us</li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Our_Focus"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Our Focus
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Contact"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -77,14 +107,70 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-3 text-sm">
-              <li>Multi Cloud Services</li>
-              <li>Datacenter & Disaster Recovery</li>
-              <li>Managed Services</li>
-              <li>Cloud Infrastructure Management</li>
-              <li>Security & Cybersecurity</li>
-              <li>Cloud Cost Optimization</li>
-              <li>Unified Endpoint Management</li>
-              <li>Generative AI</li>
+              <li>
+                <Link
+                  href="/services/multi-cloud"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Multi Cloud Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/disaster"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Datacenter & Disaster Recovery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/managed_services"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Managed Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/support"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Cloud Infrastructure Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/security"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Security & Cybersecurity
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/cloud_cost"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Cloud Cost Optimization
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/unified_endpoint"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Unified Endpoint Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/genAI"
+                  className="hover:text-[#a42a2a] transition-colors"
+                >
+                  › Generative AI
+                </Link>
+              </li>
             </ul>
           </div>
 
