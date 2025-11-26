@@ -7,7 +7,9 @@ export default function Cloud_cost() {
         Cloud Cost Management
       </h1>
 
-      <p className="text-gray-600 leading-relaxed">Cloud Cost Management page</p>
+      <p className="text-gray-600 leading-relaxed">
+        Cloud Cost Management page
+      </p>
     </div>
   );
 }
