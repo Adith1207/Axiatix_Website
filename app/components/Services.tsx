@@ -12,37 +12,37 @@ const services = [
   {
     title: "Datacenter & Disaster Recovery",
     image: "/Services/data_center.jpeg",
-    link: "/services/datacenter-disaster-recovery",
+    link: "/services/disaster",
   },
   {
     title: "Managed Services",
     image: "/Services/manageServices.jpeg",
-    link: "/services/managed-services",
+    link: "/services/managed_services",
   },
   {
     title: "Cloud Infrastructure Management",
     image: "/Services/cloudInfra.jpeg",
-    link: "/services/cloud-infrastructure-management",
+    link: "/services/cloud_cost",
   },
   {
     title: "Security & Cybersecurity",
     image: "Services/cyber.jpeg",
-    link: "/services/security-cybersecurity",
+    link: "/services/security",
   },
   {
     title: "Cloud Cost Optimization",
     image: "/Services/cloud_cost.webp",
-    link: "/services/cloud-cost-optimization",
+    link: "/services/cloud_cost",
   },
   {
     title: "Unified Endpoint Management",
     image: "/Services/uem.webp",
-    link: "/services/unified-endpoint",
+    link: "/services/unified_endpoint",
   },
   {
     title: "Generative AI",
     image: "/Services/AI.jpeg",
-    link: "/services/generative-ai",
+    link: "/services/genAI",
   },
 ];
 
