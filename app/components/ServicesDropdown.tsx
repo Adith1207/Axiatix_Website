@@ -22,22 +22,26 @@ const services = [
   {
     title: "Datacenter & Disaster Recovery",
     icon: Server,
-    href: "/services/datacenter",
+    href: "/services/disaster",
   },
-  { title: "Managed Services", icon: Cpu, href: "/services/managed" },
+  { title: "Managed Services", icon: Cpu, href: "/services/managed_services" },
   {
     title: "Security & Cybersecurity",
     icon: Shield,
     href: "/services/security",
   },
   { title: "24/7 Support", icon: Headphones, href: "/services/support" },
-  { title: "Cloud Cost Optimization", icon: BarChart, href: "/services/cost" },
+  {
+    title: "Cloud Cost Optimization",
+    icon: BarChart,
+    href: "/services/cloud_cost",
+  },
   {
     title: "Unified Endpoint Management",
     icon: Globe2Icon,
-    href: "services/uem",
+    href: "/services/unified_endpoint",
   },
-  { title: "Generative AI", icon: OrbitIcon, href: "services/genAI" },
+  { title: "Generative AI", icon: OrbitIcon, href: "/services/genAI" },
 ];
 
 export default function ServicesDropdown() {

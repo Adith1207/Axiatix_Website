@@ -22,11 +22,11 @@ const services = [
   {
     title: "Cloud Infrastructure Management",
     image: "/Services/cloudInfra.jpeg",
-    link: "/services/cloud_cost",
+    link: "/services/support", 
   },
   {
     title: "Security & Cybersecurity",
-    image: "Services/cyber.jpeg",
+    image: "/Services/cyber.jpeg",
     link: "/services/security",
   },
   {
