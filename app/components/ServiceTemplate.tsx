@@ -182,51 +182,89 @@ export default function ServiceTemplate({
 
       {/* OUTCOME + CTA */}
       <section className="pb-24 pt-6">
-        <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-10">
+        <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+          {/* OUTCOME CARD */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="flex-1"
           >
-            <div className="rounded-3xl border border-[#a42a2a]/25 bg-white p-10 shadow-md backdrop-blur-xl">
-              <h3 className="text-xl md:text-2xl font-semibold text-[#6e1515] mb-4">
-                The Outcome
-              </h3>
-              <p className="text-base md:text-lg text-[#8b2b2b] leading-relaxed">
-                {outcome}
-              </p>
+            <div
+              className="
+          group relative overflow-hidden rounded-2xl
+          min-h-[220px] w-full max-w-md
+          border border-[#a42a2a]/60 bg-[#a42a2a] p-6 text-white shadow-lg
+          transition-all duration-300 ease-out
+          hover:shadow-[0_12px_34px_rgba(164,42,42,0.45)]
+          hover:-translate-y-2 hover:scale-[1.02]
+        "
+            >
+              {/* Hover Gradient */}
+              <div
+                className="
+            absolute inset-0 bg-gradient-to-br from-[#8f1f1f] to-[#6e1515]
+            opacity-0 transition-opacity duration-300 group-hover:opacity-100
+          "
+              />
+
+              <div className="relative z-10">
+                <h3 className="text-lg md:text-xl font-semibold mb-3">
+                  The Outcome
+                </h3>
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  {outcome}
+                </p>
+              </div>
             </div>
           </motion.div>
 
+          {/* CTA CARD */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45 }}
-            className="flex-1"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-[#a42a2a]/65 bg-[#a42a2a] p-10 text-white shadow-xl">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3">
-                {ctaText}
-              </h3>
-              <p className="text-sm md:text-base text-white/90 mb-6">
-                {ctaSubtext}
-              </p>
-              <Link href="/Contact">
-                <button
-                  className="
-                    inline-flex items-center justify-center rounded-full
-                    bg-white text-[#a42a2a] px-8 py-3
-                    font-semibold text-base md:text-lg
-                    transition-all duration-300
-                    hover:bg-[#a42a2a] hover:text-white
-                    hover:shadow-[0_0_30px_rgba(164,42,42,0.8)]
-                    hover:scale-[1.05] active:scale-[0.97]
-                  "
-                >
-                  Talk to Axiatix experts
-                </button>
-              </Link>
+            <div
+              className="
+          group relative overflow-hidden rounded-2xl
+          min-h-[220px] w-full max-w-md
+          border border-[#a42a2a]/60 bg-[#a42a2a] p-6 text-white shadow-lg
+          transition-all duration-300 ease-out
+          hover:shadow-[0_12px_34px_rgba(164,42,42,0.45)]
+          hover:-translate-y-2 hover:scale-[1.02]
+        "
+            >
+              {/* Hover Gradient */}
+              <div
+                className="
+            absolute inset-0 bg-gradient-to-br from-[#8f1f1f] to-[#6e1515]
+            opacity-0 transition-opacity duration-300 group-hover:opacity-100
+          "
+              />
+
+              <div className="relative z-10">
+                <h3 className="text-lg md:text-xl font-semibold mb-3">
+                  {ctaText}
+                </h3>
+                <p className="text-sm md:text-base text-white/90 mb-4 leading-relaxed">
+                  {ctaSubtext}
+                </p>
+
+                <Link href="/Contact">
+                  <button
+                    className="
+                inline-flex items-center justify-center rounded-full
+                bg-white text-[#a42a2a] px-6 py-2 font-semibold text-sm md:text-base
+                transition-all duration-300
+                hover:bg-[#8f1f1f] hover:text-white
+                hover:shadow-[0_0_20px_rgba(255,255,255,0.35)]
+                hover:scale-[1.05] active:scale-[0.97]
+              "
+                  >
+                    Talk to Axiatix experts
+                  </button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
