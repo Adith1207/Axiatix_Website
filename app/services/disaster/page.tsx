@@ -39,7 +39,7 @@ export default function DisasterPage() {
         },
       ]}
       outcome="With a resilient datacenter foundation and a tested disaster management strategy, your business stays available, compliant and in control—even when the unexpected happens."
-      ctaText="Ready to strengthen your continuity posture?"
+      ctaText="Strengthen your continuity posture now?"
       ctaSubtext="Axiatix helps you design and operate datacenter and disaster recovery solutions that match your risk profile, compliance needs and growth plans."
     />
   );

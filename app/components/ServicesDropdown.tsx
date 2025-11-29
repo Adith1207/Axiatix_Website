@@ -7,7 +7,7 @@ import {
   Cloud,
   Server,
   Headphones,
-  Shield,
+  ShieldCheck,
   Cpu,
   BarChart,
   ChevronDown,
@@ -27,7 +27,7 @@ const services = [
   { title: "Managed Services", icon: Cpu, href: "/services/managed_services" },
   {
     title: "Security & Cybersecurity",
-    icon: Shield,
+    icon: ShieldCheck,
     href: "/services/security",
   },
   { title: "24/7 Support", icon: Headphones, href: "/services/support" },
