@@ -33,12 +33,12 @@ export default function ServiceTemplate({
   ctaSubtext,
 }: ServiceTemplateProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-[#faf7f8] to-[#e9cccc]">
+    <div className="min-h-screen bg-gradient-to-br from-white via-[#f7eded] to-[#e9cccc]">
       {/* HERO SECTION */}
       <section className="relative overflow-hidden pt-36 md:pt-40 pb-24">
         {/* BACKGROUND GLOWS */}
         <div className="pointer-events-none absolute -bottom-40 right-0 h-[480px] w-[480px] bg-[#a42a2a]/25 blur-[140px] rounded-full" />
-        <div className="pointer-events-none absolute top-0 right-0 h-[380px] w-[380px] bg-[#e9cccc]/60 blur-[120px] rounded-full" />
+        <div className="pointer-events-none absolute top-0 right-0 h-[380px] w-[380px] bg-[#e9cccc]/70 blur-[120px] rounded-full" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* LEFT SECTION */}
@@ -50,30 +50,30 @@ export default function ServiceTemplate({
           >
             <div
               className="
-          mb-5 inline-flex items-center gap-2 rounded-full
-          border border-[#8e1f1f]/40 bg-white
-          px-5 py-2 text-[0.75rem] md:text-sm font-bold uppercase tracking-[0.22em]
-          text-[#8e1f1f]
-        "
+                mb-5 inline-flex items-center gap-2 rounded-full
+                border border-[#a42a2a]/40 bg-white
+                px-5 py-2 text-[0.75rem] md:text-sm font-bold uppercase tracking-[0.22em]
+                text-[#a42a2a]
+              "
             >
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#8e1f1f]" />
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#a42a2a]" />
               {heroHighlight}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[#6e1515] tracking-tight leading-tight">
               {name}
             </h1>
 
-            <p className="mt-4 text-lg md:text-xl text-gray-800 font-medium">
+            <p className="mt-4 text-lg md:text-xl text-[#7a1c1c] font-medium">
               {tagline}
             </p>
 
-            <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
+            <p className="mt-4 text-base md:text-lg text-[#8b2b2b] leading-relaxed max-w-xl">
               {intro}
             </p>
           </motion.div>
 
-          {/* RIGHT — CARD WITH TRUE DIAGONAL WIPE */}
+          {/* RIGHT — CARD */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -84,48 +84,27 @@ export default function ServiceTemplate({
               whileHover={{ scale: 1.01, y: -3 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="
-          group relative w-full max-w-md overflow-hidden
-          rounded-b-3xl rounded-t-none
-          border border-[#a42a2a]/50 bg-white/85 backdrop-blur-xl
-          shadow-[0_12px_34px_rgba(0,0,0,0.12)]
-          pt-10 pb-10 px-8
-        "
+                group relative w-full max-w-md overflow-hidden
+                rounded-3xl border border-[#a42a2a]/30 bg-white/90 backdrop-blur-xl
+                shadow-[0_12px_34px_rgba(164,42,42,0.25)]
+                pt-10 pb-10 px-8
+              "
             >
-              {/* DIAGONAL WIPE LAYER */}
+              {/* GRADIENT HOVER OVERLAY */}
               <div
                 className="
-            diagonal-layer absolute inset-0 z-0 opacity-0
-            bg-gradient-to-br from-[#8e1f1f] via-[#a42a2a] to-[#6e1515]
-            transition-opacity duration-200
-            group-hover:opacity-100
-            group-hover:animate-diagonalWipe
-          "
+                  absolute inset-0 z-0 opacity-0
+                  bg-gradient-to-br from-[#a42a2a] via-[#8f1f1f] to-[#6e1515]
+                  transition-opacity duration-300 group-hover:opacity-100
+                "
               />
 
-              {/* ANIMATION + CLIPPATH */}
-              <style>{`
-          @keyframes diagonalWipe {
-            0% { clip-path: polygon(0% 100%, 0% 100%, 0% 100%); }
-            40% { clip-path: polygon(0% 100%, 100% 100%, 0% 0%); }
-            100% { clip-path: polygon(0% 100%, 100% 100%, 100% 0%); }
-          }
-          .animate-diagonalWipe {
-            animation: diagonalWipe 0.85s ease-out forwards;
-          }
-        `}</style>
-
-              {/* CONTENT */}
               <div className="relative z-10">
                 <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#a42a2a]/10 group-hover:bg-transparent">
                   <Icon className="h-10 w-10 text-[#a42a2a] transition-colors duration-300 group-hover:text-white" />
                 </div>
 
-                <p
-                  className="
-              text-base md:text-lg text-gray-700 leading-relaxed
-              transition-colors duration-300 group-hover:text-white
-            "
-                >
+                <p className="text-base md:text-lg text-[#7a1c1c] leading-relaxed group-hover:text-white transition-colors duration-300">
                   Designed for enterprises demanding reliability, resilience and
                   precision — with no room for compromise.
                 </p>
@@ -143,7 +122,7 @@ export default function ServiceTemplate({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-900 mb-10 text-center"
+            className="text-2xl md:text-3xl font-semibold text-[#6e1515] mb-10 text-center"
           >
             What You Gain with{" "}
             <span className="text-[#a42a2a]">Axiatix {name}</span>
@@ -171,13 +150,12 @@ export default function ServiceTemplate({
                   visible: { opacity: 1, y: 0 },
                 }}
                 className="
-                  group relative overflow-hidden rounded-2xl border border-[#ffffff70]
+                  group relative overflow-hidden rounded-2xl border border-[#a42a2a]/20
                   bg-white p-6 shadow-md backdrop-blur-xl
                   transition-all duration-300 ease-out
                   hover:-translate-y-2 hover:shadow-[0_18px_50px_rgba(164,42,42,0.35)]
                 "
               >
-                {/* Gradient red overlay */}
                 <div
                   className="
                     absolute inset-0 rounded-2xl
@@ -187,32 +165,15 @@ export default function ServiceTemplate({
                   "
                 />
 
-                {/* Radial spotlight */}
-                <div
-                  className="
-                    absolute -right-14 -top-14 h-40 w-40 rounded-full
-                    bg-white/25 blur-2xl opacity-0
-                    transition-opacity duration-300
-                    group-hover:opacity-80
-                  "
-                />
-
                 <div className="relative z-10">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-semibold text-[#6e1515] group-hover:text-white transition-colors duration-300">
                     {feature.title}
                   </h3>
-
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-white/90 transition-colors duration-300 mt-2 leading-relaxed">
+                  <p className="text-sm md:text-base text-[#8b2b2b] group-hover:text-white/90 transition-colors duration-300 mt-2 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
-
-                <div
-                  className="
-                    relative mt-4 h-[3px] w-0 rounded-full bg-white
-                    transition-all duration-300 group-hover:w-24
-                  "
-                />
+                <div className="relative mt-4 h-[3px] w-0 rounded-full bg-white transition-all duration-300 group-hover:w-24" />
               </motion.div>
             ))}
           </motion.div>
@@ -224,16 +185,15 @@ export default function ServiceTemplate({
         <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-10">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
             className="flex-1"
           >
-            <div className="rounded-3xl border border-white/70 bg-white/95 p-10 shadow-md backdrop-blur-xl">
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+            <div className="rounded-3xl border border-[#a42a2a]/25 bg-white p-10 shadow-md backdrop-blur-xl">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#6e1515] mb-4">
                 The Outcome
               </h3>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              <p className="text-base md:text-lg text-[#8b2b2b] leading-relaxed">
                 {outcome}
               </p>
             </div>
@@ -241,12 +201,11 @@ export default function ServiceTemplate({
 
           <motion.div
             initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45 }}
             className="flex-1"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-[#a42a2a]/65 bg-gradient-to-br from-[#a42a2a] via-[#8f1f1f] to-[#6e1515] p-10 text-white shadow-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-[#a42a2a]/65 bg-[#a42a2a] p-10 text-white shadow-xl">
               <h3 className="text-xl md:text-2xl font-semibold mb-3">
                 {ctaText}
               </h3>
@@ -263,7 +222,7 @@ export default function ServiceTemplate({
                     hover:bg-[#a42a2a] hover:text-white
                     hover:shadow-[0_0_30px_rgba(164,42,42,0.8)]
                     hover:scale-[1.05] active:scale-[0.97]
-                    "
+                  "
                 >
                   Talk to Axiatix experts
                 </button>
