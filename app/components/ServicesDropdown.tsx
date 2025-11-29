@@ -6,7 +6,7 @@ import { useState } from "react";
 import {
   Cloud,
   Server,
-  Headphones,
+  Headset,
   ShieldCheck,
   Cpu,
   BarChart,
@@ -30,7 +30,7 @@ const services = [
     icon: ShieldCheck,
     href: "/services/security",
   },
-  { title: "24/7 Support", icon: Headphones, href: "/services/support" },
+  { title: "24/7 Support", icon: Headset, href: "/services/support" },
   {
     title: "Cloud Cost Optimization",
     icon: BarChart,
