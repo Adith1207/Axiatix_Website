@@ -9,7 +9,7 @@ import {
   Headset,
   ShieldCheck,
   Cpu,
-  BarChart,
+  BarChart3,
   ChevronDown,
   Globe2Icon,
   OrbitIcon,
@@ -33,7 +33,7 @@ const services = [
   { title: "24/7 Support", icon: Headset, href: "/services/support" },
   {
     title: "Cloud Cost Optimization",
-    icon: BarChart,
+    icon: BarChart3,
     href: "/services/cloud_cost",
   },
   {
