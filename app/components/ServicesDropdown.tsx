@@ -12,7 +12,7 @@ import {
   BarChart3,
   ChevronDown,
   Globe2Icon,
-  OrbitIcon,
+  BrainCircuit,
   Icon,
 } from "lucide-react";
 import { title } from "process";
@@ -41,7 +41,7 @@ const services = [
     icon: Globe2Icon,
     href: "/services/unified_endpoint",
   },
-  { title: "Generative AI", icon: OrbitIcon, href: "/services/genAI" },
+  { title: "Generative AI", icon: BrainCircuit, href: "/services/genAI" },
 ];
 
 export default function ServicesDropdown() {
