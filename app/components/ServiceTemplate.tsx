@@ -51,12 +51,14 @@ export default function ServiceTemplate({
             <div
               className="
                 mb-5 inline-flex items-center gap-2 rounded-full
-                border border-[#a42a2a]/40 bg-white
-                px-5 py-2 text-[0.75rem] md:text-sm font-bold uppercase tracking-[0.22em]
-                text-[#a42a2a]
+                bg-[#a42a2a] px-5 py-2
+                text-[0.75rem] md:text-sm font-bold uppercase tracking-[0.22em]
+                text-white
+                transition-all duration-300
+                hover:bg-gradient-to-r hover:from-[#8f1f1f] hover:to-[#6e1515]
               "
             >
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#a42a2a]" />
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-white" />
               {heroHighlight}
             </div>
 
@@ -179,7 +181,6 @@ export default function ServiceTemplate({
           </motion.div>
         </div>
       </section>
-
       {/* OUTCOME + CTA */}
       <section className="pb-24 pt-6">
         <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
@@ -192,7 +193,7 @@ export default function ServiceTemplate({
             <div
               className="
           group relative overflow-hidden rounded-2xl
-          min-h-[220px] w-full max-w-md
+          min-h-[220px] w-full max-w-2xl
           border border-[#a42a2a]/60 bg-[#a42a2a] p-6 text-white shadow-lg
           transition-all duration-300 ease-out
           hover:shadow-[0_12px_34px_rgba(164,42,42,0.45)]
@@ -227,7 +228,7 @@ export default function ServiceTemplate({
             <div
               className="
           group relative overflow-hidden rounded-2xl
-          min-h-[220px] w-full max-w-md
+          min-h-[220px] w-full max-w-2xl
           border border-[#a42a2a]/60 bg-[#a42a2a] p-6 text-white shadow-lg
           transition-all duration-300 ease-out
           hover:shadow-[0_12px_34px_rgba(164,42,42,0.45)]
