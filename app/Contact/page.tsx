@@ -1,16 +1,24 @@
 "use client";
-export const dynamic = "force-dynamic";
 
+import { Suspense, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-export default function ContactPage() {
+// ---------------- WRAPPER FIX FOR SUSPENSE ----------------
+export default function ContactPageWrapper() {
+  return (
+    <Suspense fallback={null}>
+      <ContactPage />
+    </Suspense>
+  );
+}
+
+// ---------------- ORIGINAL CONTACT PAGE --------------------
+function ContactPage() {
   const [toastMessage, setToastMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // READ VALUES FROM FOOTER REDIRECT
   const searchParams = useSearchParams();
   const emailParam = searchParams.get("email");
   const nameParam = searchParams.get("name");
@@ -18,7 +26,6 @@ export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  // Autofill values
   useEffect(() => {
     if (emailParam) setEmail(emailParam);
     if (nameParam) setName(nameParam.replace(/\./g, " "));
@@ -39,7 +46,6 @@ export default function ContactPage() {
 
     if (res.ok) {
       setToastMessage("Message Sent Successfully!");
-      // Clear message only, but keep name/email
       e.target.message.value = "";
     } else {
       setToastMessage("Failed to send. Please try again later.");
@@ -54,7 +60,7 @@ export default function ContactPage() {
       <div className="pointer-events-none absolute -top-10 -right-10 w-72 h-72 bg-[#7A1E1E]/30 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -left-10 w-80 h-80 bg-[#7A1E1E]/20 rounded-full blur-3xl" />
 
-      {/* Custom Toast Box */}
+      {/* Toast */}
       {toastMessage && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
