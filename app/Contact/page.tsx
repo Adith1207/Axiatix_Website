@@ -1,12 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Phone, Mail, MessageCircle } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
   const [toastMessage, setToastMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // READ VALUES FROM FOOTER REDIRECT
+  const searchParams = useSearchParams();
+  const emailParam = searchParams.get("email");
+  const nameParam = searchParams.get("name");
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  // Autofill values
+  useEffect(() => {
+    if (emailParam) setEmail(emailParam);
+    if (nameParam) setName(nameParam.replace(/\./g, " "));
+  }, [emailParam, nameParam]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -23,7 +38,8 @@ export default function ContactPage() {
 
     if (res.ok) {
       setToastMessage("Message Sent Successfully!");
-      e.target.reset();
+      // Clear message only, but keep name/email
+      e.target.message.value = "";
     } else {
       setToastMessage("Failed to send. Please try again later.");
     }
@@ -102,7 +118,9 @@ export default function ContactPage() {
               type="text"
               required
               placeholder="Enter your name"
-              className="w-full p-4 rounded-xl border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#7A1E1E]"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-4 rounded-xl border border-black bg-white text-black focus:outline-none focus:border-[#7A1E1E] focus:ring-2 focus:ring-[#7A1E1E]"
             />
           </div>
 
@@ -115,7 +133,9 @@ export default function ContactPage() {
               type="email"
               required
               placeholder="Enter your email"
-              className="w-full p-4 rounded-xl border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#7A1E1E]"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-4 rounded-xl border border-black bg-white text-black focus:outline-none focus:border-[#7A1E1E] focus:ring-2 focus:ring-[#7A1E1E]"
             />
           </div>
 
@@ -128,7 +148,7 @@ export default function ContactPage() {
               rows={5}
               required
               placeholder="Write your message here..."
-              className="w-full p-4 rounded-xl border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#7A1E1E]"
+              className="w-full p-4 rounded-xl border border-black bg-white text-black focus:outline-none focus:border-[#7A1E1E] focus:ring-2 focus:ring-[#7A1E1E]"
             ></textarea>
           </div>
 
